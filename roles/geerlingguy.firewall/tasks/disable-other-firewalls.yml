@@ -33,15 +33,15 @@
     - firewall_disable_ufw
   check_mode: false
 
-- name: Disable the ufw firewall (on Ubuntu, if configured).
-  service:
-    name: ufw
-    state: stopped
-    enabled: false
-  when:
-    - ansible_distribution == "Ubuntu"
-    - firewall_disable_ufw
-    - ufw_installed.rc == 0
+# - name: Disable the ufw firewall (on Ubuntu, if configured).
+#  service:
+#    name: ufw
+#    state: stopped
+#    enabled: false
+#  when:
+#    - ansible_distribution == "Ubuntu"
+#    - firewall_disable_ufw
+#    - ufw_installed.rc == 0
 
 - name: Check if ufw package is installed (on Archlinux).
   command: pacman -Q ufw
